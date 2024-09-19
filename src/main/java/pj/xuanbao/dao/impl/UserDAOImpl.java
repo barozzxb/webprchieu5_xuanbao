@@ -86,10 +86,11 @@ public class UserDAOImpl extends DBConnectMySQL implements IUserDAO{
 			ps.setString(3, user.getFullname());
 			ps.setString(4, user.getImages());
 			ps.setString(5, user.getEmail());
-			ps.setInt(6, user.getRoleid());
+			ps.setString(6, user.getPhone());
+			ps.setInt(7, user.getRoleid());
 			ps.setDate(8, user.getCreateddate());
 			ps.executeUpdate();
-			
+			return;
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -168,5 +169,11 @@ public class UserDAOImpl extends DBConnectMySQL implements IUserDAO{
 		IUserDAO dao = new UserDAOImpl();
 		boolean email = dao.checkExistEmail("xuanbao@gmail.com");
 		System.out.println(email);
+		
+		long millis=System.currentTimeMillis();
+		java.sql.Date date = new java.sql.Date(millis);
+		
+		UserModel user = new UserModel("bao", "bao", "Bao Xuan", null, "bao@gmail.com", "0325647897", 2, date);
+		dao.insert(user);
 	}
 }
