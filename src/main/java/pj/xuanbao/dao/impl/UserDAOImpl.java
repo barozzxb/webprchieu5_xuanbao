@@ -13,6 +13,7 @@ import pj.xuanbao.models.UserModel;
 
 public class UserDAOImpl extends DBConnectMySQL implements IUserDAO{
 
+
 	public Connection conn = null;
 	public PreparedStatement ps = null;
 	public ResultSet rs = null;
@@ -165,6 +166,26 @@ public class UserDAOImpl extends DBConnectMySQL implements IUserDAO{
 		}
 	}
 
+	@Override
+	public boolean update(UserModel user) {
+		String sql = "update users set fullname = ?, images = ?, email=?, phone=? where username = ?";
+		try {
+			conn = super.getDatabaseConnection();
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, user.getFullname());
+			ps.setString(2, user.getImages());
+			ps.setString(3, user.getEmail());
+			ps.setString(4, user.getPhone());
+			ps.setString(5, user.getUsername());
+			
+			ps.executeUpdate();
+			return true;
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 	public static void main(String[] args) {
 		IUserDAO dao = new UserDAOImpl();
 		boolean email = dao.checkExistEmail("xuanbao@gmail.com");
@@ -173,7 +194,8 @@ public class UserDAOImpl extends DBConnectMySQL implements IUserDAO{
 		long millis=System.currentTimeMillis();
 		java.sql.Date date = new java.sql.Date(millis);
 		
-		UserModel user = new UserModel("bao", "bao", "Bao Xuan", null, "bao@gmail.com", "0325647897", 2, date);
-		dao.insert(user);
+		UserModel user = new UserModel("xuanbao", "xuanbaobao", "Bao Xuan Tran", null, "xuan1bao@gmail.com", "0825647897",1, date);
+		dao.update(user);
+
 	}
 }

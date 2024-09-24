@@ -14,4 +14,5 @@ public interface IUserServices {
 	
 	public void resetPassword(String email, String password);
 	
+	public boolean update(UserModel user);
 }

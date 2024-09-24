@@ -15,4 +15,6 @@ public interface IUserDAO {
 	boolean checkExistPhone(String phone);
 	
 	void resetPassword(String email, String password);
+	
+	boolean update(UserModel user);
 }

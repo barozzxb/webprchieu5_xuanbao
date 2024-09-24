@@ -6,125 +6,89 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-	/* General styles */
-	body {
-	    font-family: 'Poppins', sans-serif;
-	    background-color: #f0f0f0;
-	    display: flex;
-	    justify-content: center;
-	    align-items: center;
-	    height: 100vh;
-	}
-	
-	/* Form container */
-	form {
-	    max-width: 400px;
-	    padding: 20px;
-	    border: 1px solid #ccc;
-	    border-radius: 10px;
-	    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-	    background-color: #fff;
-	}
-	
-	/* Form elements */
-	h1 {
-	    text-align: center;
-	    margin-bottom: 30px;
-	}
-	
-	p {
-	    text-align: center;
-	    margin-bottom: 20px;
-	}
-	
-	label {
-	    display: block;
-	    margin-bottom: 10px;
-	}
-	
-	input[type="text"],
-	input[type="password"],
-	input[type="checkbox"] {
-	    width: 100%;
-	    padding: 12px 20px;
-	    margin: 8px 0;
-	    display: inline-block;
-	    border: 1px solid #ccc;
-	    border-radius: 4px;
-	    box-sizing: border-box;
-	}
-	
-	input[type="checkbox"] {
-	    margin-right: 5px;
-	}
-	
-	button {
-	    background-color: #4CAF50;
-	    color: white;
-	    padding: 14px 20px;
-	    margin: 8px 0;
-	    border: none;
-	    cursor: pointer;
-	    width: 100%;
-	}
-	
-	button:hover {
-	    opacity: 0.8;
-	}
-	
-	.cancelbtn {
-	    background-color: #f44336;
-	}
-	
-	.clearfix {
-	    overflow: auto;
-	}
-	
-	.clearfix::after {
-	    content: "";
-	    clear: both;
-	    display: table;
-	}
-</style>
 </head>
 <body>
-	<form action="/webprchieu5/signup" style="border:1px solid #ccc" method="post">
 	  <div class="container">
-	  	<c:if test="${alert !=null}">
-			<h3 class="alert alert danger">${alert}</h3>
-		</c:if>
-	    <h1>Sign Up</h1>
-	    <p>Please fill in this form to create an account.</p>
-	    <label for="username"><b>Username</b></label>
-	    <input type="text" placeholder="Enter Username" name="username" required>
-		
-		<label for="fullname"><b>Full name</b></label>
-	    <input type="text" placeholder="Enter full name" name="fullname" required>
-		
-	    <label for="email"><b>Email</b></label>
-	    <input type="text" placeholder="Enter Email" name="email" required>
-		    
-		<label for="phone"><b>Username</b></label>
-	    <input type="text" placeholder="Enter Phone number" name="phone" required>
-	
-	    <label for="password"><b>Password</b></label>
-	    <input type="password" placeholder="Enter Password" name="password" required>
-	
-	    <label for="psw-repeat"><b>Repeat Password</b></label>
-	    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-	
-	    <label>
-	      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-	    </label>
-	
-	    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-	
-	    <div class="clearfix">
-	      <button type="button" class="cancelbtn">Cancel</button>
-	      <button type="submit" class="signupbtn">Sign Up</button>
-	    </div>
+	    <!-- BEGIN CONTENT -->
+          <div class="col-md-9 col-sm-9">
+            <h1>Create an account</h1>
+            <div class="content-form-page">
+              <div class="row">
+                <div class="col-md-7 col-sm-7">
+                  <form action="/webprchieu5/signup" class="form-horizontal" role="form" method="post">
+                  <c:if test="${alert !=null}">
+					<h3 class="alert alert danger">${alert}</h3>
+					</c:if>
+                    <fieldset>
+                      <legend>Your personal details</legend>
+                      <div class="form-group">
+                        <label for="firstname" class="col-lg-4 control-label">First Name <span class="require">*</span></label>
+                        <div class="col-lg-8">
+                          <input type="text" class="form-control" id="firstname">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="lastname" class="col-lg-4 control-label">Last Name <span class="require">*</span></label>
+                        <div class="col-lg-8">
+                          <input type="text" class="form-control" id="lastname">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="email" class="col-lg-4 control-label">Email <span class="require">*</span></label>
+                        <div class="col-lg-8">
+                          <input type="text" class="form-control" id="email">
+                        </div>
+                      </div>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Your password</legend>
+                      <div class="form-group">
+                        <label for="password" class="col-lg-4 control-label">Password <span class="require">*</span></label>
+                        <div class="col-lg-8">
+                          <input type="text" class="form-control" id="password">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="confirm-password" class="col-lg-4 control-label">Confirm password <span class="require">*</span></label>
+                        <div class="col-lg-8">
+                          <input type="text" class="form-control" id="confirm-password">
+                        </div>
+                      </div>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Newsletter</legend>
+                      <div class="checkbox form-group">
+                        <label>
+                          <div class="col-lg-4 col-sm-4">Singup for Newsletter</div>
+                          <div class="col-lg-8 col-sm-8">
+                            <input type="checkbox">
+                          </div>
+                        </label>
+                      </div>
+                    </fieldset>
+                    <div class="row">
+                      <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">                        
+                        <button type="submit" class="btn btn-primary">Create an account</button>
+                        <button type="button" class="btn btn-default">Cancel</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="col-md-4 col-sm-4 pull-right">
+                  <div class="form-info">
+                    <h2><em>Important</em> Information</h2>
+                    <p>Lorem ipsum dolor ut sit ame dolore  adipiscing elit, sed sit nonumy nibh sed euismod ut laoreet dolore magna aliquarm erat sit volutpat. Nostrud exerci tation ullamcorper suscipit lobortis nisl aliquip  commodo quat.</p>
+
+                    <p>Duis autem vel eum iriure at dolor vulputate velit esse vel molestie at dolore.</p>
+
+                    <button type="button" class="btn btn-default">More details</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br></br>
+          <!-- END CONTENT -->
 	  </div>
-	</form>
 </body>
 </html>

@@ -11,6 +11,12 @@ public class UserServicesImpl implements IUserServices{
 	IUserDAO userDAO = new UserDAOImpl();
 	
 	@Override
+	public boolean update(UserModel user) {
+		return userDAO.update(user);
+	}
+
+
+	@Override
 	public void resetPassword(String email, String password) {
 		userDAO.resetPassword(email, password);
 	}
