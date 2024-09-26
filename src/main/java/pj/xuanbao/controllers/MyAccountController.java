@@ -14,6 +14,8 @@ import pj.xuanbao.services.IUserServices;
 import pj.xuanbao.services.impl.UserServicesImpl;
 
 @WebServlet(urlPatterns= {"/myaccount"})
+
+
 public class MyAccountController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -44,10 +46,10 @@ public class MyAccountController extends HttpServlet {
 				String image = req.getParameter("image");
 				String email = req.getParameter("email");
 				String phone = req.getParameter("phone");
-				int roleid = Integer.parseInt(req.getParameter("role"));
+				//int roleid = Integer.parseInt(req.getParameter("role"));
 				
 
-				UserModel user = new UserModel(username, password, fullname, image, email, phone, roleid);
+				UserModel user = new UserModel(username, password, fullname, image, email, phone);
 				// Xử lý bài toán
 				String alertMsg = "";
 				boolean updated = service.update(user);

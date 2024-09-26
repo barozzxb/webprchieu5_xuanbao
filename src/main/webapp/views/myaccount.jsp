@@ -56,7 +56,7 @@
                     <div class="form-group">
                       <label for="phone" class="col-lg-4 control-label">Phone <span class="require">*</span></label>
                       <div class="col-lg-8">
-                        <input type="text" class="form-control" id="phone" name="phone" value="${sessionScope.account.phone}">
+                        <input type="text" class="form-control" id="phone" name="phone" value="${sessionScope.user.phone}">
                       </div>
                     </div>
                     
@@ -68,7 +68,7 @@
                     </div>
                     
                     <div class="form-group">
-                      <label for="createddate" class="col-lg-4 control-label">Phone <span class="require">*</span></label>
+                      <label for="createddate" class="col-lg-4 control-label">Createddate <span class="require">*</span></label>
                       <div class="col-lg-8">
                         <input type="text" class="form-control" id="createddate" name="createddate" value="${sessionScope.account.createddate}" readonly>
                       </div>
